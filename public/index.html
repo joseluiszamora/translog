@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TransLog Control Financiero</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">MVP Transporte</p>
+          <h1>TransLog</h1>
+          <p class="muted">
+            Control operativo y financiero centrado en viajes, tesoreria y rentabilidad.
+          </p>
+        </div>
+        <nav class="nav">
+          <button class="nav-link active" data-view="dashboard">Dashboard</button>
+          <button class="nav-link" data-view="trips">Viajes</button>
+          <button class="nav-link" data-view="receivables">Cuentas por cobrar</button>
+          <button class="nav-link" data-view="payables">Cuentas por pagar</button>
+          <button class="nav-link" data-view="cash">Caja y bancos</button>
+          <button class="nav-link" data-view="reports">Rentabilidad</button>
+          <button class="nav-link" data-view="audit">Auditoria</button>
+        </nav>
+        <div class="user-card" id="user-card"></div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Empresa de transporte de carga</p>
+            <h2 id="page-title">Dashboard financiero</h2>
+          </div>
+          <div class="chip-row">
+            <span class="chip">Web SaaS</span>
+            <span class="chip">Monolito modular</span>
+            <span class="chip">API REST</span>
+          </div>
+        </header>
+
+        <section id="dashboard-view" class="view active"></section>
+        <section id="trips-view" class="view"></section>
+        <section id="receivables-view" class="view"></section>
+        <section id="payables-view" class="view"></section>
+        <section id="cash-view" class="view"></section>
+        <section id="reports-view" class="view"></section>
+        <section id="audit-view" class="view"></section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+  </html>
