@@ -10,6 +10,7 @@ const TABS = [
   { key: "routes", label: "Rutas" },
   { key: "vehicles", label: "Vehículos" },
   { key: "drivers", label: "Conductores" },
+  { key: "users", label: "Usuarios" },
 ];
 
 const FIELDS = {
@@ -52,6 +53,16 @@ const FIELDS = {
       label: "Estado",
       type: "select",
       options: ["active", "inactive", "on_leave"],
+    },
+  ],
+  users: [
+    { key: "firstName", label: "Nombres", required: true, fullWidth: true },
+    { key: "lastName", label: "Apellidos", required: true, fullWidth: true },
+    {
+      key: "username",
+      label: "Nombre de usuario",
+      required: true,
+      fullWidth: true,
     },
   ],
 };
@@ -126,7 +137,9 @@ function EntityTable({ entity }) {
         {fields.map((field) => (
           <div
             key={field.key}
-            className={field.key === "name" ? "col-span-2" : ""}
+            className={
+              field.key === "name" || field.fullWidth ? "col-span-2" : ""
+            }
           >
             <label className="form-label">
               {field.label}
@@ -272,7 +285,7 @@ export default function MaestrosPage() {
     <div>
       <PageHeader
         title="Datos paramétricos"
-        subtitle="Gestión de clientes, rutas, vehículos y conductores"
+        subtitle="Gestión de clientes, rutas, vehículos, conductores y usuarios"
       />
 
       <div className="flex gap-1 mb-6 border-b border-slate-200">

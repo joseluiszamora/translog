@@ -6,6 +6,7 @@ const updateFn = {
   routes: (id, b) => dataStore.updateRoute(id, b),
   vehicles: (id, b) => dataStore.updateVehicle(id, b),
   drivers: (id, b) => dataStore.updateDriver(id, b),
+  users: (id, b) => dataStore.updateUser(id, b),
 };
 
 const deleteFn = {
@@ -13,6 +14,7 @@ const deleteFn = {
   routes: (id) => dataStore.deleteRoute(id),
   vehicles: (id) => dataStore.deleteVehicle(id),
   drivers: (id) => dataStore.deleteDriver(id),
+  users: (id) => dataStore.deleteUser(id),
 };
 
 export async function PUT(request, { params }) {

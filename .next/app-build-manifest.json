@@ -1,15 +1,25 @@
 {
   "pages": {
-    "/gastos-viaje/page": [
+    "/cobros/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/gastos-viaje/page.js"
+      "static/chunks/app/cobros/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/gastos-viaje/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/gastos-viaje/page.js"
+    ],
+    "/pagos/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pagos/page.js"
     ]
   }
 }

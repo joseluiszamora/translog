@@ -414,6 +414,23 @@ class DataStore {
     return rows.map((row) => this.enrichReceivable(receivableFromRow(row)));
   }
 
+  listReceivablePayments(receivableId) {
+    return db
+      .prepare(
+        "SELECT * FROM receivable_payments WHERE receivable_id = ? ORDER BY paid_at DESC",
+      )
+      .all(receivableId)
+      .map((row) => ({
+        id: row.id,
+        receivableId: row.receivable_id,
+        cashAccountId: row.cash_account_id,
+        amount: row.amount,
+        method: row.method,
+        paidAt: row.paid_at,
+        reference: row.reference || "",
+      }));
+  }
+
   addReceivablePayment(receivableId, input) {
     const recRow = db
       .prepare("SELECT * FROM receivables WHERE id = ?")
@@ -482,6 +499,23 @@ class DataStore {
       .prepare("SELECT * FROM payables ORDER BY due_date ASC")
       .all();
     return rows.map((row) => this.enrichPayable(payableFromRow(row)));
+  }
+
+  listPayablePayments(payableId) {
+    return db
+      .prepare(
+        "SELECT * FROM payable_payments WHERE payable_id = ? ORDER BY paid_at DESC",
+      )
+      .all(payableId)
+      .map((row) => ({
+        id: row.id,
+        payableId: row.payable_id,
+        cashAccountId: row.cash_account_id,
+        amount: row.amount,
+        method: row.method,
+        paidAt: row.paid_at,
+        reference: row.reference || "",
+      }));
   }
 
   addPayablePayment(payableId, input) {
@@ -1198,6 +1232,78 @@ class DataStore {
     if (!row) return false;
     db.prepare("DELETE FROM drivers WHERE id = ?").run(id);
     this.logAction("driver.deleted", "driver", id, "");
+    return true;
+  }
+
+  // ─── Maestros: Usuarios ───────────────────────────────────────────────────
+
+  listUsers() {
+    return db
+      .prepare(
+        `SELECT id, first_name as firstName, last_name as lastName,
+                username, name, email, role
+         FROM users ORDER BY last_name, first_name`,
+      )
+      .all();
+  }
+
+  createUser(input) {
+    const row = db
+      .prepare(
+        "SELECT MAX(CAST(SUBSTR(id, INSTR(id, '-') + 1) AS INTEGER)) as maxN FROM users",
+      )
+      .get();
+    const id = `usr-${(row.maxN || 0) + 1}`;
+    const firstName = input.firstName || "";
+    const lastName = input.lastName || "";
+    const username = input.username || "";
+    const name = `${firstName} ${lastName}`.trim() || username || id;
+    const email = input.email || `${username}@translog.local`;
+    db.prepare(
+      `INSERT INTO users (id, name, email, role, first_name, last_name, username)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+    ).run(
+      id,
+      name,
+      email,
+      input.role || "operator",
+      firstName,
+      lastName,
+      username,
+    );
+    this.logAction("user.created", "user", id, name);
+    return {
+      id,
+      firstName,
+      lastName,
+      username,
+      name,
+      email,
+      role: input.role || "operator",
+    };
+  }
+
+  updateUser(id, input) {
+    const row = db.prepare("SELECT id FROM users WHERE id = ?").get(id);
+    if (!row) return null;
+    const firstName = input.firstName || "";
+    const lastName = input.lastName || "";
+    const username = input.username || "";
+    const name = `${firstName} ${lastName}`.trim() || username || id;
+    db.prepare(
+      `UPDATE users
+       SET first_name = ?, last_name = ?, username = ?, name = ?
+       WHERE id = ?`,
+    ).run(firstName, lastName, username, name, id);
+    this.logAction("user.updated", "user", id, name);
+    return { id, firstName, lastName, username, name };
+  }
+
+  deleteUser(id) {
+    const row = db.prepare("SELECT id FROM users WHERE id = ?").get(id);
+    if (!row) return false;
+    db.prepare("DELETE FROM users WHERE id = ?").run(id);
+    this.logAction("user.deleted", "user", id, "");
     return true;
   }
 }

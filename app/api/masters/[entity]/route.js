@@ -6,6 +6,7 @@ const listFn = {
   routes: () => dataStore.listRoutes(),
   vehicles: () => dataStore.listVehicles(),
   drivers: () => dataStore.listDrivers(),
+  users: () => dataStore.listUsers(),
 };
 
 const createFn = {
@@ -13,6 +14,7 @@ const createFn = {
   routes: (b) => dataStore.createRoute(b),
   vehicles: (b) => dataStore.createVehicle(b),
   drivers: (b) => dataStore.createDriver(b),
+  users: (b) => dataStore.createUser(b),
 };
 
 export async function GET(_, { params }) {
