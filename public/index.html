@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -13,17 +13,30 @@
           <p class="eyebrow">MVP Transporte</p>
           <h1>TransLog</h1>
           <p class="muted">
-            Control operativo y financiero centrado en viajes, tesoreria y rentabilidad.
+            Control operativo y financiero centrado en viajes, tesoreria y
+            rentabilidad.
           </p>
         </div>
         <nav class="nav">
-          <button class="nav-link active" data-view="dashboard">Dashboard</button>
+          <button class="nav-link active" data-view="dashboard">
+            Dashboard
+          </button>
           <button class="nav-link" data-view="trips">Viajes</button>
-          <button class="nav-link" data-view="receivables">Cuentas por cobrar</button>
-          <button class="nav-link" data-view="payables">Cuentas por pagar</button>
+          <button class="nav-link" data-view="trip-expenses">
+            Gastos por viaje
+          </button>
+          <button class="nav-link" data-view="receivables">
+            Cuentas por cobrar
+          </button>
+          <button class="nav-link" data-view="payables">
+            Cuentas por pagar
+          </button>
           <button class="nav-link" data-view="cash">Caja y bancos</button>
           <button class="nav-link" data-view="reports">Rentabilidad</button>
           <button class="nav-link" data-view="audit">Auditoria</button>
+          <button class="nav-link" data-view="masters">
+            Datos parametricos
+          </button>
         </nav>
         <div class="user-card" id="user-card"></div>
       </aside>
@@ -43,14 +56,16 @@
 
         <section id="dashboard-view" class="view active"></section>
         <section id="trips-view" class="view"></section>
+        <section id="trip-expenses-view" class="view"></section>
         <section id="receivables-view" class="view"></section>
         <section id="payables-view" class="view"></section>
         <section id="cash-view" class="view"></section>
         <section id="reports-view" class="view"></section>
         <section id="audit-view" class="view"></section>
+        <section id="masters-view" class="view"></section>
       </main>
     </div>
 
     <script type="module" src="/app.js"></script>
   </body>
-  </html>
+</html>

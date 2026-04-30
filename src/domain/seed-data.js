@@ -12,21 +12,21 @@ export const seedData = {
       id: "user-admin",
       name: "Mariana Rojas",
       email: "admin@translog.local",
-      role: "admin"
+      role: "admin",
     },
     {
       id: "user-finance",
       name: "Luis Herrera",
       email: "finanzas@translog.local",
-      role: "finance"
-    }
+      role: "finance",
+    },
   ],
   roles: [
     { id: "admin", name: "Administrador" },
     { id: "finance", name: "Finanzas" },
     { id: "operations", name: "Operaciones" },
     { id: "manager", name: "Gerencia" },
-    { id: "viewer", name: "Consulta" }
+    { id: "viewer", name: "Consulta" },
   ],
   permissions: [
     "trips.read",
@@ -38,51 +38,88 @@ export const seedData = {
     "cash.read",
     "cash.write",
     "reports.read",
-    "admin.read"
+    "admin.read",
   ],
   settings: {
     companyName: "TransLog Carga",
-    currency: "USD",
+    currency: "BOB",
     branches: ["Central", "Santa Cruz"],
-    paymentMethods: ["Transferencia", "Efectivo", "Tarjeta", "Cheque"]
+    paymentMethods: ["Transferencia", "Efectivo", "Tarjeta", "Cheque"],
   },
   customers: [
-    { id: "cust-1", name: "AgroAndes", creditDays: 30, contact: "compras@agroandes.com" },
-    { id: "cust-2", name: "Mineral Norte", creditDays: 15, contact: "tesoreria@mineralnorte.com" },
-    { id: "cust-3", name: "Supermercados Viva", creditDays: 21, contact: "pagos@viva.com" }
+    {
+      id: "cust-1",
+      name: "AgroAndes",
+      creditDays: 30,
+      contact: "compras@agroandes.com",
+    },
+    {
+      id: "cust-2",
+      name: "Mineral Norte",
+      creditDays: 15,
+      contact: "tesoreria@mineralnorte.com",
+    },
+    {
+      id: "cust-3",
+      name: "Supermercados Viva",
+      creditDays: 21,
+      contact: "pagos@viva.com",
+    },
   ],
   suppliers: [
     { id: "sup-1", name: "Combustibles Ruta", category: "Combustible" },
     { id: "sup-2", name: "Peajes del Sur", category: "Peajes" },
-    { id: "sup-3", name: "Servicios Taller 24", category: "Mantenimiento" }
+    { id: "sup-3", name: "Servicios Taller 24", category: "Mantenimiento" },
   ],
   vehicles: [
-    { id: "veh-1", plate: "TRK-4012", model: "Volvo FH", capacityTons: 30, status: "available" },
-    { id: "veh-2", plate: "TRK-9921", model: "Scania R450", capacityTons: 28, status: "in_trip" }
+    {
+      id: "veh-1",
+      plate: "TRK-4012",
+      model: "Volvo FH",
+      capacityTons: 30,
+      status: "available",
+    },
+    {
+      id: "veh-2",
+      plate: "TRK-9921",
+      model: "Scania R450",
+      capacityTons: 28,
+      status: "in_trip",
+    },
   ],
   drivers: [
     { id: "drv-1", name: "Carlos Mena", licenseType: "C", status: "active" },
-    { id: "drv-2", name: "Ana Quispe", licenseType: "C", status: "active" }
+    { id: "drv-2", name: "Ana Quispe", licenseType: "C", status: "active" },
   ],
   routes: [
-    { id: "route-1", origin: "La Paz", destination: "Santa Cruz", kilometers: 860 },
-    { id: "route-2", origin: "Santa Cruz", destination: "Cochabamba", kilometers: 480 },
-    { id: "route-3", origin: "El Alto", destination: "Oruro", kilometers: 230 }
+    {
+      id: "route-1",
+      origin: "La Paz",
+      destination: "Santa Cruz",
+      kilometers: 860,
+    },
+    {
+      id: "route-2",
+      origin: "Santa Cruz",
+      destination: "Cochabamba",
+      kilometers: 480,
+    },
+    { id: "route-3", origin: "El Alto", destination: "Oruro", kilometers: 230 },
   ],
   expenseCategories: [
     { id: "exp-1", name: "Combustible", type: "operational" },
     { id: "exp-2", name: "Peajes", type: "operational" },
     { id: "exp-3", name: "Viaticos", type: "operational" },
     { id: "exp-4", name: "Mantenimiento", type: "operational" },
-    { id: "exp-5", name: "Administrativo", type: "administrative" }
+    { id: "exp-5", name: "Administrativo", type: "administrative" },
   ],
   incomeCategories: [
     { id: "inc-1", name: "Flete nacional" },
-    { id: "inc-2", name: "Servicio prioritario" }
+    { id: "inc-2", name: "Servicio prioritario" },
   ],
   cashAccounts: [
     { id: "cash-1", name: "Caja General", type: "cash", balance: 6200 },
-    { id: "bank-1", name: "Banco Principal", type: "bank", balance: 18250 }
+    { id: "bank-1", name: "Banco Principal", type: "bank", balance: 18250 },
   ],
   trips: [
     {
@@ -96,7 +133,7 @@ export const seedData = {
       expectedRevenue: 5400,
       status: "invoiced",
       notes: "Carga de granos",
-      advanceAmount: 650
+      advanceAmount: 650,
     },
     {
       id: "trip-2",
@@ -109,7 +146,7 @@ export const seedData = {
       expectedRevenue: 3900,
       status: "in_progress",
       notes: "Mineral fraccionado",
-      advanceAmount: 400
+      advanceAmount: 400,
     },
     {
       id: "trip-3",
@@ -122,8 +159,8 @@ export const seedData = {
       expectedRevenue: 1800,
       status: "planned",
       notes: "Reposicion semanal",
-      advanceAmount: 0
-    }
+      advanceAmount: 0,
+    },
   ],
   tripExpenses: [
     {
@@ -134,7 +171,7 @@ export const seedData = {
       description: "Carga de diesel",
       amount: 970,
       date: daysFromToday(-7),
-      paymentStatus: "paid"
+      paymentStatus: "paid",
     },
     {
       id: "trx-exp-2",
@@ -144,7 +181,7 @@ export const seedData = {
       description: "Peajes ruta central",
       amount: 140,
       date: daysFromToday(-6),
-      paymentStatus: "paid"
+      paymentStatus: "paid",
     },
     {
       id: "trx-exp-3",
@@ -154,8 +191,8 @@ export const seedData = {
       description: "Combustible ida",
       amount: 620,
       date: daysFromToday(-2),
-      paymentStatus: "pending"
-    }
+      paymentStatus: "pending",
+    },
   ],
   receivables: [
     {
@@ -166,8 +203,8 @@ export const seedData = {
       issuedAt: daysFromToday(-5),
       dueDate: daysFromToday(25),
       totalAmount: 5400,
-      status: "partial"
-    }
+      status: "partial",
+    },
   ],
   receivablePayments: [
     {
@@ -177,8 +214,8 @@ export const seedData = {
       amount: 2400,
       method: "Transferencia",
       paidAt: daysFromToday(-1),
-      reference: "TRX88912"
-    }
+      reference: "TRX88912",
+    },
   ],
   payables: [
     {
@@ -188,7 +225,7 @@ export const seedData = {
       dueDate: daysFromToday(10),
       totalAmount: 620,
       status: "pending",
-      description: "Combustible pendiente trip-2"
+      description: "Combustible pendiente trip-2",
     },
     {
       id: "pay-2",
@@ -197,8 +234,8 @@ export const seedData = {
       dueDate: daysFromToday(6),
       totalAmount: 300,
       status: "partial",
-      description: "Reparacion electrica"
-    }
+      description: "Reparacion electrica",
+    },
   ],
   payablePayments: [
     {
@@ -208,8 +245,8 @@ export const seedData = {
       amount: 100,
       method: "Efectivo",
       paidAt: daysFromToday(-1),
-      reference: "REC-414"
-    }
+      reference: "REC-414",
+    },
   ],
   cashMovements: [
     {
@@ -220,7 +257,7 @@ export const seedData = {
       amount: 2400,
       date: daysFromToday(-1),
       referenceType: "receivable_payment",
-      referenceId: "rec-pay-1"
+      referenceId: "rec-pay-1",
     },
     {
       id: "mov-2",
@@ -230,8 +267,8 @@ export const seedData = {
       amount: 100,
       date: daysFromToday(-1),
       referenceType: "payable_payment",
-      referenceId: "pay-pay-1"
-    }
+      referenceId: "pay-pay-1",
+    },
   ],
   auditLogs: [
     {
@@ -241,7 +278,7 @@ export const seedData = {
       entityId: "bootstrap",
       performedBy: "user-admin",
       performedAt: today.toISOString(),
-      notes: "Carga inicial del sistema"
-    }
-  ]
+      notes: "Carga inicial del sistema",
+    },
+  ],
 };

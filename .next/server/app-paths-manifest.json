@@ -1,0 +1,7 @@
+{
+  "/gastos-viaje/page": "app/gastos-viaje/page.js",
+  "/api/trips/route": "app/api/trips/route.js",
+  "/api/bootstrap/route": "app/api/bootstrap/route.js",
+  "/api/trips/[id]/expenses/route": "app/api/trips/[id]/expenses/route.js",
+  "/api/trips/[id]/expenses/[expenseId]/route": "app/api/trips/[id]/expenses/[expenseId]/route.js"
+}
