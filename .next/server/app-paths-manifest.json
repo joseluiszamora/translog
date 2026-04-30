@@ -1,10 +1,10 @@
 {
+  "/pagos/page": "app/pagos/page.js",
+  "/api/payables/route": "app/api/payables/route.js",
+  "/api/bootstrap/route": "app/api/bootstrap/route.js",
   "/cobros/page": "app/cobros/page.js",
   "/api/receivables/route": "app/api/receivables/route.js",
-  "/api/bootstrap/route": "app/api/bootstrap/route.js",
-  "/gastos-viaje/page": "app/gastos-viaje/page.js",
-  "/api/trips/route": "app/api/trips/route.js",
-  "/api/trips/[id]/expenses/route": "app/api/trips/[id]/expenses/route.js",
-  "/pagos/page": "app/pagos/page.js",
-  "/api/payables/route": "app/api/payables/route.js"
+  "/caja/page": "app/caja/page.js",
+  "/api/cash-movements/route": "app/api/cash-movements/route.js",
+  "/api/payables/[id]/payments/route": "app/api/payables/[id]/payments/route.js"
 }

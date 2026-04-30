@@ -1,8 +1,8 @@
-// File: /home/jzamora/development/financial/app/gastos-viaje/page.js
-import * as entry from '../../../../app/gastos-viaje/page.js'
+// File: /home/jzamora/development/financial/app/caja/page.js
+import * as entry from '../../../../app/caja/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/gastos-viaje/page.js')
+type TEntry = typeof import('../../../../app/caja/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

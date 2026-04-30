@@ -1,8 +1,8 @@
-// File: /home/jzamora/development/financial/app/api/trips/route.js
-import * as entry from '../../../../../app/api/trips/route.js'
+// File: /home/jzamora/development/financial/app/api/payables/[id]/payments/route.js
+import * as entry from '../../../../../../../app/api/payables/[id]/payments/route.js'
 import type { NextRequest } from 'next/server.js'
 
-type TEntry = typeof import('../../../../../app/api/trips/route.js')
+type TEntry = typeof import('../../../../../../../app/api/payables/[id]/payments/route.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
